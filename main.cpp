@@ -7,10 +7,17 @@ int main() {
     InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "Blade & Stone");
     const float playerSpeed = 3.0f;
     SetTargetFPS(60); 
+
     //World map texture
     Texture2D worldMap = LoadTexture("Assets/WorldMap.png");
     Vector2 mapPosition = {0.0f, 0.0f};
 
+    Texture2D knight = LoadTexture("Assets/characters/knight_idle_spritesheet.png");
+    Vector2 knightPosition = {
+        (float)SCREEN_WIDTH/2.0f-4.0f*(0.5f*(float)knight.width/6.0f),
+        (float)SCREEN_HEIGHT/2.0f-4.0f*(0.5f*(float)knight.height)
+     };
+  
    
     
     while (!WindowShouldClose()) 
@@ -32,6 +39,11 @@ int main() {
         
         
         DrawTextureEx(worldMap, mapPosition, 0, 1, WHITE);
+        
+        Rectangle source {0.f,0.f,(float)knight.width/6.0f,(float)knight.height};
+        Rectangle dest{knightPosition.x,knightPosition.y,4.0f*(float)knight.width/6.0f,4.0f*(float)knight.height};
+        DrawTexturePro(knight,source,dest,Vector2{},0.f,WHITE);
+
         EndDrawing();
     }
 
