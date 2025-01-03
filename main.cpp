@@ -1,30 +1,25 @@
 #include "raylib.h"
-#define SCREEN_WIDTH 1600
-#define SCREEN_HEIGHT 900
+
+#define SCREEN_WIDTH 384
+#define SCREEN_HEIGHT 384
 int main() {
-    // Initialization
+    InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "Blade & Stone");
 
-
-    InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "raylib [core] example - basic window");
-
-    SetTargetFPS(60); // Set our game to run at 60 frames-per-second
-
+    SetTargetFPS(60); 
+    //World map texture
+    Texture2D worldMap = LoadTexture("Assets/WorldMap.png");
+    Vector2 mapPosition = {0.0f, 0.0f};
+   
     // Main game loop
     while (!WindowShouldClose()) { // Detect window close button or ESC key
-        // Update
-
-        // Draw
         BeginDrawing();
-
         ClearBackground(RAYWHITE);
 
-        DrawText("Congrats! You created your first window!", 190, 200, 20, LIGHTGRAY);
-
+        DrawTextureEx(worldMap, mapPosition, 0, 0.651f, WHITE);
         EndDrawing();
     }
 
-    // De-Initialization
-    CloseWindow(); // Close window and OpenGL context
+    CloseWindow();
 
     return 0;
 }
