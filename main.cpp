@@ -3,13 +3,33 @@
 
 #define SCREEN_WIDTH 768
 #define SCREEN_HEIGHT 768
+class Character
+{
+public:
+    Vector2 getWorldPos(){ return worldPos;}
+private:
+    Texture2D texture;
+    Texture2D idle;
+    Texture2D run;
+    Vector2 screenPos;
+    Vector2 worldPos;
+    // Animation variables
+     float runningTime{};
+     int frame{};
+     const int maxFrames{6};
+     const float updateTime{1.0f/12.0f};
+
+};
+
+
+
 int main() {
     InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "Blade & Stone");
     const float playerSpeed = 3.0f;
     SetTargetFPS(60); 
 
     //World map texture
-    Texture2D worldMap = LoadTexture("Assets/WorldMap.png");
+    Texture2D worldMap = LoadTexture("Assets/WorldMap2.png");
     Vector2 mapPosition = {0.0f, 0.0f};
 
     // Knight textures
