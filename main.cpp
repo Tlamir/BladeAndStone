@@ -17,7 +17,7 @@ int main()
     Texture2D worldMap = LoadTexture("Assets/WorldMap2.png");
     Vector2 mapPosition = {0.0f, 0.0f};
 
-    Character playerCharacter;
+    Character playerCharacter(SCREEN_WIDTH,SCREEN_HEIGHT);
     playerCharacter.setScreenPos(SCREEN_WIDTH, SCREEN_HEIGHT);
     while (!WindowShouldClose())
     {
