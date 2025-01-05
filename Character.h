@@ -8,6 +8,9 @@ public:
     void setScreenPos(int winWith, int winHeight);
     void tick(float detltaTime);
     void undoMovement();
+    int getCharacterTextureSizex();
+    int getCharacterTextureSizey();
+
 
 private:
     Texture2D texture{LoadTexture("Assets/characters/knight_idle_spritesheet.png")};

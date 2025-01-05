@@ -55,3 +55,11 @@ void Character::undoMovement()
 {
     worldPos = worldPosLastFrame;
 }
+
+int Character::getCharacterTextureSizex(){
+    return texture.width/maxFrames;
+}
+
+int Character::getCharacterTextureSizey(){
+    return texture.height;
+}
