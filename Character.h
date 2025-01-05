@@ -8,6 +8,8 @@ public:
     void setScreenPos(int winWith, int winHeight);
     void tick(float detltaTime);
     void undoMovement();
+    int getTextureWidth();
+    int getTextureHeight();
 
 private:
     Texture2D texture{LoadTexture("Assets/characters/knight_idle_spritesheet.png")};
@@ -22,7 +24,7 @@ private:
     int frame{};
     int maxFrames{6};
     float updateTime{1.0f / 12.0f};
-    float speed{4.f};
+    float speed{10.f};
     float width{};
     float height{};
     Vector2 worldPosLastFrame;
