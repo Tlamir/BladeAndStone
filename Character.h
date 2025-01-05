@@ -3,7 +3,7 @@
 class Character
 {
 public:
-    Character();
+    Character(int winWidth, int winHeight);
     Vector2 getWorldPos() { return worldPos; }
     void setScreenPos(int winWith, int winHeight);
     void tick(float detltaTime);
@@ -27,5 +27,6 @@ private:
     float speed{10.f};
     float width{};
     float height{};
+    float scale{2.0f};
     Vector2 worldPosLastFrame;
 };

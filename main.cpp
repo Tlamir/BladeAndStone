@@ -49,8 +49,8 @@ int main()
     Texture2D worldMap = LoadTexture("Assets/bladeandstone.png");
     Vector2 mapPosition = {0.0f, 0.0f};
 
-    Character playerCharacter;
-    playerCharacter.setScreenPos(SCREEN_WIDTH, SCREEN_HEIGHT);
+    Character playerCharacter(SCREEN_WIDTH,SCREEN_HEIGHT);
+    //playerCharacter.setScreenPos(SCREEN_WIDTH, SCREEN_HEIGHT);
     while (!WindowShouldClose())
     {
         BeginDrawing();
