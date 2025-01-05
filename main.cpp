@@ -31,7 +31,7 @@ int main()
         playerCharacter.tick(GetFrameTime());
         // Out of Bounds check
         if (
-            playerCharacter.getWorldPos().x< 0.f ||
+            playerCharacter.getWorldPos().x-4.0f< 0.f ||
             playerCharacter.getWorldPos().y < 0.f ||
             playerCharacter.getWorldPos().x + SCREEN_WIDTH + playerCharacter.getCharacterTextureSizex()> worldMap.width * MAP_SCALE ||
             playerCharacter.getWorldPos().y + SCREEN_HEIGHT +playerCharacter.getCharacterTextureSizey()+10.f  > worldMap.height * MAP_SCALE)
