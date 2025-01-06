@@ -10,6 +10,7 @@ public:
     Rectangle getCollisonRec();
     int getCharacterTextureSizex();
     int getCharacterTextureSizey();
+    virtual void tick(float deltaTime);
 
 protected:
     Texture2D texture{LoadTexture("Assets/characters/knight_idle_spritesheet.png")};
