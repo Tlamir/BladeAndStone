@@ -2,6 +2,7 @@
 #include "raymath.h"
 
 #include "Character.h"
+#include "Prop.h"
 
 #define SCREEN_WIDTH 768
 #define SCREEN_HEIGHT 768
@@ -18,7 +19,10 @@ int main()
     Vector2 mapPosition = {0.0f, 0.0f};
 
     Character playerCharacter(SCREEN_WIDTH,SCREEN_HEIGHT);
-    //playerCharacter.setScreenPos(SCREEN_WIDTH, SCREEN_HEIGHT);
+    
+    //Prop
+    Texture2D propTexture = LoadTexture("Assets/nature_tileset/Rock.png");
+    Prop rock{Vector2{0.0f,0.0f},propTexture};
     while (!WindowShouldClose())
     {
         BeginDrawing();
@@ -38,7 +42,7 @@ int main()
         {
             playerCharacter.undoMovement();
         }
-
+        rock.Render(playerCharacter.getWorldPos());
         EndDrawing();
     }
 
