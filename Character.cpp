@@ -3,7 +3,7 @@
 
 Character::Character(int winWidth, int winHeight)
 {
-    
+
     width = texture.width / maxFrames;
     height = texture.height;
     screenPos = {
@@ -11,7 +11,7 @@ Character::Character(int winWidth, int winHeight)
         static_cast<float>(winHeight) / 2.0f - scale * (0.5f * height)};
 }
 
-void Character::tick(float detltaTime)
+void Character::tick(float deltaTime)
 {
 
     worldPosLastFrame = worldPos;
@@ -37,7 +37,7 @@ void Character::tick(float detltaTime)
 
     // Update animation frame
 
-    runningTime += detltaTime;
+    runningTime += deltaTime;
     if (runningTime >= updateTime)
     {
         frame++;
@@ -56,18 +56,20 @@ void Character::undoMovement()
     worldPos = worldPosLastFrame;
 }
 
-int Character::getCharacterTextureSizex(){
-    return texture.width/maxFrames;
+int Character::getCharacterTextureSizex()
+{
+    return texture.width / maxFrames;
 }
 
-int Character::getCharacterTextureSizey(){
+int Character::getCharacterTextureSizey()
+{
     return texture.height;
 }
 
 Rectangle Character::getCollisonRec()
 {
-    
-     return Rectangle{
+
+    return Rectangle{
         screenPos.x,
         screenPos.y,
         width * scale,

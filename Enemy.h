@@ -1,18 +1,15 @@
 #include "raylib.h"
 #include "BaseCharacter.h"
-
-class Character : public BaseCharacter
+class Enemy : public BaseCharacter
 {
+
 public:
-    Character(int winWith, int winHeight);
+    Enemy(Vector2 pos, Texture2D idle_texture, Texture2D run_texture);
     Vector2 getWorldPos() { return worldPos; }
     void setScreenPos(int winWith, int winHeight);
     void tick(float detltaTime);
     void undoMovement();
-
     Rectangle getCollisonRec();
-    int getCharacterTextureSizex();
-    int getCharacterTextureSizey();
 
 private:
     Texture2D texture{LoadTexture("Assets/characters/knight_idle_spritesheet.png")};
