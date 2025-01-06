@@ -63,3 +63,13 @@ int Character::getCharacterTextureSizex(){
 int Character::getCharacterTextureSizey(){
     return texture.height;
 }
+
+Rectangle Character::getCollisonRec()
+{
+    
+     return Rectangle{
+        screenPos.x,
+        screenPos.y,
+        width * scale,
+        height * scale};
+}

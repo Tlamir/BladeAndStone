@@ -22,7 +22,12 @@ int main()
     
     //Prop
     Texture2D propTexture = LoadTexture("Assets/nature_tileset/Rock.png");
-    Prop rock{Vector2{0.0f,0.0f},propTexture};
+   
+    Prop props[2]{
+        Prop{Vector2{600.0f,300.0f},propTexture},
+        Prop{Vector2{400.0f,600.0f},propTexture}
+
+    };
     while (!WindowShouldClose())
     {
         BeginDrawing();
@@ -42,7 +47,22 @@ int main()
         {
             playerCharacter.undoMovement();
         }
-        rock.Render(playerCharacter.getWorldPos());
+        //Check prop collision
+        for(auto prop : props){
+            if (CheckCollisionRecs(prop.getCollisonRec(playerCharacter.getWorldPos()),playerCharacter.getCollisonRec()))
+            {
+                playerCharacter.undoMovement();
+            }
+            
+            
+            
+       }
+        //Draw the props
+       for(Prop prop : props){
+            prop.Render(playerCharacter.getWorldPos());
+            
+            
+       }
         EndDrawing();
     }
 

@@ -7,7 +7,16 @@ Prop::Prop(Vector2 pos, Texture2D tex) : worldPos(pos),
 }
 void Prop::Render(Vector2 playerPos)
 {
+    Vector2 screenPos{Vector2Subtract(worldPos, playerPos)};
+    DrawTextureEx(texture, screenPos, 0.f, scale, WHITE);
+}
+
+Rectangle Prop::getCollisonRec(Vector2 playerPos)
+{
     Vector2 screenPos{Vector2Subtract(worldPos,playerPos)};
-    DrawTextureEx(texture,screenPos,0.f,scale,WHITE);
-    
+     return Rectangle{
+        screenPos.x,
+        screenPos.y,
+        texture.width * scale,
+        texture.height * scale};
 }

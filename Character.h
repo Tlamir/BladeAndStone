@@ -10,6 +10,7 @@ public:
     void undoMovement();
     int getCharacterTextureSizex();
     int getCharacterTextureSizey();
+    Rectangle getCollisonRec();
 
 
 private:
