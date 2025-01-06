@@ -76,6 +76,8 @@ int main()
             
        }
        enemy.tick(GetFrameTime());
+       // Set enemy target
+        enemy.setTarget(&playerCharacter);
         EndDrawing();
     }
 

@@ -14,3 +14,8 @@ void Enemy::tick(float deltaTime)
 {
     BaseCharacter::tick(deltaTime);
 }
+
+void Enemy::setTarget(Character *character){
+    target=character;
+
+}
