@@ -38,6 +38,8 @@ int main()
         enemyTexture,
         enemyTextureRun,
     };
+        enemy.setTarget(&playerCharacter);
+
 
 
     while (!WindowShouldClose())
@@ -77,7 +79,6 @@ int main()
        }
        enemy.tick(GetFrameTime());
        // Set enemy target
-        enemy.setTarget(&playerCharacter);
         EndDrawing();
     }
 
