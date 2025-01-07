@@ -20,26 +20,31 @@ int main()
     // World map texture
     Texture2D worldMap = LoadTexture("Assets/WorldMap2.png");
     Vector2 mapPosition = {0.0f, 0.0f};
-
+    // Player Character
     Character playerCharacter(SCREEN_WIDTH, SCREEN_HEIGHT);
-
     // Prop
     Texture2D propTexture = LoadTexture("Assets/nature_tileset/Rock.png");
-
     Prop props[2]{
         Prop{Vector2{600.0f, 300.0f}, propTexture},
         Prop{Vector2{400.0f, 600.0f}, propTexture}};
     // Enemy
-
-    Texture2D enemyTexture = LoadTexture("Assets/characters/goblin_idle_spritesheet.png");
-    Texture2D enemyTextureRun = LoadTexture("Assets/characters/goblin_run_spritesheet.png");
-
-    Enemy enemy{
-        Vector2{},
-        enemyTexture,
-        enemyTextureRun,
+    Enemy goblin{
+        Vector2{800.f, 300.f},
+        LoadTexture("Assets/characters/goblin_idle_spritesheet.png"),
+        LoadTexture("Assets/characters/goblin_run_spritesheet.png"),
     };
-    enemy.setTarget(&playerCharacter);
+    Enemy slime{
+        Vector2{500.f, 700.f},
+        LoadTexture("Assets/characters/slime_idle_spritesheet.png"),
+        LoadTexture("Assets/characters/slime_run_spritesheet.png"),
+    };
+    Enemy *enemies[2]{
+        &goblin,
+        &slime};
+    for (auto &&enemy : enemies)
+    {
+        enemy->setTarget(&playerCharacter);
+    }
 
     while (!WindowShouldClose())
     {
@@ -75,26 +80,30 @@ int main()
         }
         if (!playerCharacter.getAlive()) // Character is dead
         {
-            DrawText("Game Over!",40.f,40.f,40,RED);
+            DrawText("Game Over!", 40.f, 40.f, 40, RED);
             EndDrawing();
             continue;
         }
         else // Character is alive
         {
-            std::string playerHealth="Health: ";
-            playerHealth.append(std::to_string(playerCharacter.getHealth()),0,5);
-            DrawText(playerHealth.c_str(),40.f,40.f,40,RED);
+            std::string playerHealth = "Health: ";
+            playerHealth.append(std::to_string(playerCharacter.getHealth()), 0, 5);
+            DrawText(playerHealth.c_str(), 40.f, 40.f, 40, RED);
         }
 
-        enemy.tick(GetFrameTime());
-        // Set enemy target
-        if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
+        for (auto &&enemy : enemies)
         {
-            if (CheckCollisionRecs(playerCharacter.getWeaponCollisionRec(), enemy.getCollisonRec()))
+            enemy->tick(GetFrameTime());
+            // Set enemy target
+            if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
             {
-                enemy.setAlive(false);
+                if (CheckCollisionRecs(playerCharacter.getWeaponCollisionRec(), enemy->getCollisonRec()))
+                {
+                    enemy->setAlive(false);
+                }
             }
         }
+
         EndDrawing();
     }
 
