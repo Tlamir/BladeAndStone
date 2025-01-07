@@ -79,6 +79,8 @@ int main()
                 enemy.setAlive(false);
             }
         }
+        
+        //DrawText(playerCharacter.getHealth(),40,40,40,BLACK);
         EndDrawing();
     }
 
