@@ -73,6 +73,12 @@ int main()
         }
         enemy.tick(GetFrameTime());
         // Set enemy target
+        if(IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
+        {
+            if(CheckCollisionRecs(playerCharacter.getWeaponCollisionRec(),enemy.getCollisonRec())){
+                enemy.setAlive(false);
+            }
+        }
         EndDrawing();
     }
 

@@ -12,6 +12,8 @@ public:
     int getCharacterTextureSizey();
     virtual void tick(float deltaTime);
     virtual Vector2 getScreenPos() = 0; // pure virtual function
+    bool getAlive() { return alive; }
+    void setAlive(bool isAlive) { alive = isAlive; };
 
 protected:
     Texture2D texture{LoadTexture("Assets/characters/knight_idle_spritesheet.png")};
@@ -33,5 +35,6 @@ protected:
     Vector2 velocity{};
 
 private:
+    bool alive{true};
 };
 #endif
