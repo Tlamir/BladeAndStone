@@ -25,4 +25,41 @@ void Character::tick(float deltaTime)
     if (IsKeyDown(KEY_S))
         velocity.y += 1.0f;
     BaseCharacter::tick(deltaTime);
+
+    Vector2 origin{};
+    Vector2 offset{};
+    if (rightLeft>0.f)
+    {
+        //Facing right
+        origin = {0.f,wepon.height*scale};
+        offset={35.f,55.f};
+        weaponCollisionRec={
+            getScreenPos().x+offset.x,
+            getScreenPos().y+offset.y-wepon.height*scale,
+            wepon.width*scale,
+            wepon.height*scale
+        };
+    }
+    else
+    {
+        //Facing left
+        origin = {wepon.width*scale,wepon.height*scale};
+        offset={25.f,55.f};
+        weaponCollisionRec={
+            getScreenPos().x+offset.x-wepon.width*scale,
+            getScreenPos().y+offset.y-wepon.height*scale,
+            wepon.width*scale,
+            wepon.height*scale
+        };
+    }
+    float rotation{};
+     rightLeft>0 ? rotation=35.f : rotation=-35.f;
+    
+    // Draw the sword
+    Rectangle source{0.f,0.f,static_cast<float>(wepon.width)*rightLeft,static_cast<float>(wepon.height)};
+    Rectangle dest{getScreenPos().x+offset.x,getScreenPos().y+offset.y,wepon.width*scale,wepon.height*scale};
+    DrawTexturePro(wepon,source,dest,origin,rotation,WHITE);
+
+    DrawRectangleLines(weaponCollisionRec.x,weaponCollisionRec.y,weaponCollisionRec.width,weaponCollisionRec.height,RED);
+
 }
