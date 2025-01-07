@@ -1,6 +1,8 @@
 #include "raylib.h"
 #include "raymath.h"
 
+#include <string>
+
 #include "Character.h"
 #include "Prop.h"
 #include "Enemy.h"
@@ -71,16 +73,28 @@ int main()
         {
             prop.Render(playerCharacter.getWorldPos());
         }
+        if (!playerCharacter.getAlive()) // Character is dead
+        {
+            DrawText("Game Over!",40.f,40.f,40,RED);
+            EndDrawing();
+            continue;
+        }
+        else // Character is alive
+        {
+            std::string playerHealth="Health: ";
+            playerHealth.append(std::to_string(playerCharacter.getHealth()),0,5);
+            DrawText(playerHealth.c_str(),40.f,40.f,40,RED);
+        }
+
         enemy.tick(GetFrameTime());
         // Set enemy target
-        if(IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
+        if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
         {
-            if(CheckCollisionRecs(playerCharacter.getWeaponCollisionRec(),enemy.getCollisonRec())){
+            if (CheckCollisionRecs(playerCharacter.getWeaponCollisionRec(), enemy.getCollisonRec()))
+            {
                 enemy.setAlive(false);
             }
         }
-        
-        //DrawText(playerCharacter.getHealth(),40,40,40,BLACK);
         EndDrawing();
     }
 
