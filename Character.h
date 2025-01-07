@@ -10,7 +10,7 @@ public:
 
     virtual void tick(float detltaTime) override;
 
-   virtual Vector2 getScreenPos() override;
+    virtual Vector2 getScreenPos() override;
 
 private:
     int windowWidth{};

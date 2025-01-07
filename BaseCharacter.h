@@ -11,7 +11,7 @@ public:
     int getCharacterTextureSizex();
     int getCharacterTextureSizey();
     virtual void tick(float deltaTime);
-    virtual Vector2 getScreenPos()=0;// pure virtual function
+    virtual Vector2 getScreenPos() = 0; // pure virtual function
 
 protected:
     Texture2D texture{LoadTexture("Assets/characters/knight_idle_spritesheet.png")};

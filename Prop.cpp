@@ -13,8 +13,8 @@ void Prop::Render(Vector2 playerPos)
 
 Rectangle Prop::getCollisonRec(Vector2 playerPos)
 {
-    Vector2 screenPos{Vector2Subtract(worldPos,playerPos)};
-     return Rectangle{
+    Vector2 screenPos{Vector2Subtract(worldPos, playerPos)};
+    return Rectangle{
         screenPos.x,
         screenPos.y,
         texture.width * scale,

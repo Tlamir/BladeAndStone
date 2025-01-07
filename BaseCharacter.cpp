@@ -42,7 +42,8 @@ void BaseCharacter::tick(float deltaTime)
         runningTime = 0.f;
         if (frame > maxFrames)
             frame = 0;
-    }    if (Vector2Length(velocity) != 0.0)
+    }
+    if (Vector2Length(velocity) != 0.0)
     {
         // Set worldPos = worldPos + velocity
         worldPos = Vector2Add(worldPos, Vector2Scale(Vector2Normalize(velocity), speed));
@@ -51,7 +52,7 @@ void BaseCharacter::tick(float deltaTime)
     }
     else
         texture = idle;
-    velocity={};    
+    velocity = {};
     // Draw character
     Rectangle source{width * frame, 0.f, rightLeft * width, height};
     Rectangle dest{getScreenPos().x, getScreenPos().y, scale * width, scale * height};

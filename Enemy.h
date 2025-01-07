@@ -5,14 +5,11 @@ class Enemy : public BaseCharacter
 {
 
 public:
-    Enemy(Vector2 pos, Texture2D idle_texture, Texture2D run_texture); 
+    Enemy(Vector2 pos, Texture2D idle_texture, Texture2D run_texture);
     virtual void tick(float detltaTime) override;
-    void setTarget(Character* character){ target =character;};
+    void setTarget(Character *character) { target = character; };
     virtual Vector2 getScreenPos() override;
 
-
-
 private:
-    Character* target;
-
+    Character *target;
 };
