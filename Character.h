@@ -8,7 +8,9 @@ class Character : public BaseCharacter
 public:
     Character(int winWith, int winHeight);
 
-   virtual void tick(float detltaTime) override;
+    virtual void tick(float detltaTime) override;
+
+    Vector2 getScreenPos() {return screenPos;}
 
 private:
 };
