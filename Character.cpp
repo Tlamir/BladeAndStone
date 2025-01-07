@@ -62,7 +62,8 @@ void Character::tick(float deltaTime)
     Rectangle dest{getScreenPos().x + offset.x, getScreenPos().y + offset.y, wepon.width * scale, wepon.height * scale};
     DrawTexturePro(wepon, source, dest, origin, rotation, WHITE);
 
-    DrawRectangleLines(weaponCollisionRec.x, weaponCollisionRec.y, weaponCollisionRec.width, weaponCollisionRec.height, RED);
+    // Draw wepon collision rectangle
+    //DrawRectangleLines(weaponCollisionRec.x, weaponCollisionRec.y, weaponCollisionRec.width, weaponCollisionRec.height, RED);
 }
 void Character::takeDamage(float damage){
     health-=damage;
