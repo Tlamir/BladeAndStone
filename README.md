@@ -1,8 +1,9 @@
 # Blade & Stone
 
-Blade & Stone is a 2D action-adventure game built using the Raylib library. The game features a character navigating through a world filled with enemies and obstacles.
+Blade & Stone is a 2D game built using the Raylib library. The game features a character navigating through a world filled with enemies and obstacles.
 
-![Gameplay GIF](path/to/your/gameplay.gif)
+
+![GIF](https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExMWVzaDZpeDBqNTVpeDNiNG80ZHE2bjlwM2d3YzUxNDVva2RmeG0zNSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/q6WNjXvhrbMb0RxMtJ/giphy-downsized-large.gif)
 
 ## Building the Project
 
@@ -10,7 +11,7 @@ To build the project, follow these steps:
 
 1. **Clone the repository**:
     ```sh
-    git clone https://github.com/yourusername/blade-and-stone.git
+    git clone https://github.com/Tlamir/BladeAndStone.git
     cd blade-and-stone
     ```
 
@@ -26,8 +27,3 @@ To build the project, follow these steps:
     ```sh
     ./BladeAndStone
     ```
-
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
